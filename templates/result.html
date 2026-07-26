@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Result — SentimentScope{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+
+{% block content %}
+  <section class="result-wrap">
+
+    <div id="capture-card" class="card">
+      <img src="{{ video.thumbnail }}" alt="thumbnail" class="thumb">
+      <h2 class="video-title">{{ video.title }}</h2>
+      <p class="meta">👁 {{ video.view_count }} views &nbsp;|&nbsp; 👍 {{ video.like_count }} likes</p>
+
+      <div class="results">
+        <div class="bar positive">
+          <span>Positive</span><span>{{ result.positive_pct }}%</span>
+        </div>
+        <div class="bar neutral">
+          <span>Neutral</span><span>{{ result.neutral_pct }}%</span>
+        </div>
+        <div class="bar negative">
+          <span>Negative</span><span>{{ result.negative_pct }}%</span>
+        </div>
+      </div>
+
+      <p class="total">Based on {{ result.total }} comments analyzed</p>
+
+      {% if video.tags %}
+      <div class="tags">
+        {% for tag in video.tags[:10] %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <p class="watermark">via SentimentScope</p>
+    </div>
+
+    <div class="actions">
+      <button id="download-btn">📥 Download as Image</button>
+      <a href="/" class="secondary-link">← Analyze another video</a>
+    </div>
+
+  </section>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="{{ url_for('static', filename='js/download-card.js') }}"></script>
+{% endblock %}

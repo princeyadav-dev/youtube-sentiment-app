@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Analyze Comments — SentimentScope{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <h1>Know what your audience really feels</h1>
+    <p class="hero-sub">Paste a YouTube video link. Get instant Positive / Neutral / Negative breakdown of the comments — no coding needed.</p>
+
+    {% if error %}
+      <p class="alert-error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/predict" method="POST" class="url-form">
+      <input
+        type="text"
+        name="youtube_url"
+        placeholder="Paste YouTube video link here..."
+        required
+      >
+      <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    <div class="hero-note">
+      <span>⚡ Takes ~10-20 seconds</span>
+      <span>🔒 We don't store your data</span>
+    </div>
+  </section>
+{% endblock %}

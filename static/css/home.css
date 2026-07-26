@@ -1,0 +1,49 @@
+.hero {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: #5a5a6e;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.url-form {
+  display: flex;
+  gap: 10px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.url-form input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #dcdce6;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.url-form input[type="text"]:focus {
+  outline: none;
+  border-color: #ff0000;
+}
+
+.hero-note {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 13px;
+  color: #a0a0b0;
+}
